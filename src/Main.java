@@ -1,10 +1,9 @@
 import java.util.Scanner;
-import Audio.Audio;
-import Immagine.Immagine;
-import Video.Video;
 import entities.AudioNew;
+import entities.ImmagineNew;
 import entities.Multimedia;
 import entities.VideoMult;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -24,8 +23,8 @@ public class Main {
         input.close();*/
         Scanner input = new Scanner(System.in);
         Multimedia[] list = new Multimedia[5];
-        for (int i = 0; i < 1; i++) {
-            System.out.println("Preferisci un audio o un video?");
+        for (int i = 0; i < 2; i++) {
+            System.out.println("Preferisci un audio, un video o un immagine?");
             String tipo = input.nextLine();
             if ("audio".equals(tipo)) {
                 System.out.println("Inserisci il nome del tuo audio");
@@ -33,8 +32,6 @@ public class Main {
                 System.out.println("Inserisci la durata in secondi");
                 int durata = input.nextInt();
                 input.nextLine();
-//                System.out.println("Inserisci il volume da ! a !!!!!");
-//                int volume = input.nextInt();
                 list[i] = new AudioNew(nome, durata);
             }
             if ("video".equals(tipo)) {
@@ -47,23 +44,34 @@ public class Main {
                 input.nextLine();
                 list[i] = new VideoMult(nome, durata, luminosità);
             }
+            if ("immagine".equals(tipo)) {
+                System.out.println("Inserisci il nome della tua immagine");
+                String nome = input.nextLine();
+                System.out.println("Inserisci la luminosità da 1 a 5 ");
+                int luminosità = input.nextInt();
+                input.nextLine();
+                list[i] = new ImmagineNew(nome, luminosità);
+            }
         }
-        System.out.println("Quale vuoi eseguire? da 0 a 4? ");
-        int sceltaUtente = input.nextInt();
-        if (sceltaUtente == 0) {
-            list[sceltaUtente].playMult();
-        } else if (sceltaUtente == 1) {
-            list[sceltaUtente].playMult();
-        }else if (sceltaUtente == 2) {
-            list[sceltaUtente].playMult();
-        } else if (sceltaUtente == 3) {
-            list[sceltaUtente].playMult();
-        } else if (sceltaUtente == 4) {
-            list[sceltaUtente].playMult();
-        } else {
-            System.out.println("Scelta non valida, mi dispiace :(");
-        }
-
+        String str;
+        do {
+            System.out.println("Per finire, scrivi 'stop'; altrimenti, digita altro:");
+            str = input.nextLine();
+            System.out.println("Quale vuoi eseguire? da 0 a 4? ");
+            int sceltaUtente = input.nextInt();
+            if (sceltaUtente == 0) {
+                list[sceltaUtente].playMult();
+            } else if (sceltaUtente == 1) {
+                list[sceltaUtente].playMult();
+            } else if (sceltaUtente == 2) {
+                list[sceltaUtente].playMult();
+            } else if (sceltaUtente == 3) {
+                list[sceltaUtente].playMult();
+            } else if (sceltaUtente == 4) {
+                list[sceltaUtente].playMult();
+            } else {
+                System.out.println("Scelta non valida, mi dispiace :(");
+            } } while (str != "stop");
         input.close();
+        }
     }
-}

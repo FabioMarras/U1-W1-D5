@@ -2,7 +2,7 @@ package Audio;
 
 public enum TrackList {
     BRANO1("Brano 1", 80, "!!!"),
-    BRANO2("Brano 2", 180, "!!"),
+    BRANO2("Brano 2", 220, "!!"),
     BRANO3("Brano 3", 180, "!!"),
     BRANO4("Brano 4", 180, "!!"),
     BRANO5("Brano 5", 180, "!!"),

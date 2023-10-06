@@ -20,9 +20,10 @@ public class VideoMult implements Multimedia {
         System.out.println("Durata: " + durata + " minuti");
 //        System.out.println("Luminosità:" + luminosità);
 //        System.out.println("Volume" + volume);
-        StampaVideoLuminosità(luminosità);
-        StampaVideoVolume(volume);
-        StampaVideoNome(durata);
+//        StampaVideoLuminosità(luminosità);
+//        StampaVideoVolume(volume);
+//        StampaVideoNome(durata);
+        info();
     }
 
     public void StampaVideoLuminosità(int luminosità) {
@@ -68,9 +69,71 @@ public class VideoMult implements Multimedia {
             System.out.println(titolo + titolo + titolo + titolo);
         }
     }
-   /* public void play2(TrackVideo video){
-        StampaVideoNome(video);
-        StampaVideoVolume(video);
-        StampaVideoLuminosità(video);
-    }*/
+    public void info(){
+        //alzaVolumeVideo(volume); SE SI VUOLE ALZARE IL VOLUME SCOMMENTARE
+        abbassaVolume(volume);
+        StampaVideoNome(durata);
+        StampaVideoVolume(volume);
+        StampaVideoLuminosità(luminosità);
+    }
+
+    public void alzaVolumeVideo(String volume) {
+        if (volume.length() == 1) {
+            this.setVolume("!!");
+        } else if (volume.length() == 2) {
+            this.setVolume("!!!");;
+        } else if (volume.length() == 3) {
+            this.setVolume("!!!!");;
+        } else if (volume.length() == 4) {
+            this.setVolume("!!!!!");;
+        } else {
+            System.out.println("Volume già al massimo!");
+        }
+    }
+
+    public void abbassaVolume(String volume) {
+        if (volume.length() == 5) {
+            this.setVolume("!!!!");
+        } else if (volume.length() == 4) {
+            this.setVolume("!!!");;
+        } else if (volume.length() == 3) {
+            this.setVolume("!!");;
+        } else if (volume.length() == 2) {
+            this.setVolume("!");;
+        } else {
+            System.out.println("Volume già al minimo!");
+        }
+    }
+
+    public String getTitolo() {
+        return titolo;
+    }
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
+    public int getDurata() {
+        return durata;
+    }
+
+    public void setDurata(int durata) {
+        this.durata = durata;
+    }
+
+    public int getLuminosità() {
+        return luminosità;
+    }
+
+    public void setLuminosità(int luminosità) {
+        this.luminosità = luminosità;
+    }
+
+    public String getVolume() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume = volume;
+    }
 }

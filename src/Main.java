@@ -23,7 +23,8 @@ public class Main {
         input.close();*/
         Scanner input = new Scanner(System.in);
         Multimedia[] list = new Multimedia[5];
-        for (int i = 0; i < 2; i++) {
+        //per comodità di esecuzione era settato a 2 e non a 5
+        for (int i = 0; i < 5; i++) {
             System.out.println("Preferisci un audio, un video o un immagine?");
             String tipo = input.nextLine();
             if ("audio".equals(tipo)) {
